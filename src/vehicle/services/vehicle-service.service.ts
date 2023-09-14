@@ -23,7 +23,7 @@ export class VehicleService {
   }
 
   getVehicleByVinNumber(vin_number: string): Observable<IVehicle> {
-    return this.httpClient.get<IVehicle>(this.url_for_vehicle_api, { responseType: 'json' });
+    return this.httpClient.get<IVehicle>(this.url_for_vehicle_api + '/vin_number/' + vin_number, { responseType: 'json' });
   }
 
   addVehicle(ownerId: number, vehicle: IVehicle): Observable<string> {
@@ -40,6 +40,11 @@ export class VehicleService {
     return this.httpClient.put(this.url_for_vehicle_api + '/' + vehicle_id,
       vehicle,
       { responseType: 'text' as const, headers: new HttpHeaders({ 'Content-Type': 'application/json' }) });
+  }
+
+  getAllVehiclesVinNumbers(): Observable<string[]> {
+    return of(['JHMSZ542XDC028494','YV1672MK9D2304784', 'WDDDJ72X97A116339', 'WP0AA2A79BL017244', 
+      '2FAFP73W1WX172908', '4S3BJ6321N6900903', '1HD1FCW116Y619817', 'WP0CB298X4U661674']);
   }
 
 }

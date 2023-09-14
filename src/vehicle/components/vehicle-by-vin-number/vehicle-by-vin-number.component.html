@@ -1,0 +1,42 @@
+<h2>Get vehicle by VIN number</h2>
+
+<div class="container">
+    <div class="row">
+        <form [formGroup]="allVinNumbersForm" (ngSubmit)="submitAllVinNumbersForm()">
+            <label for="vinNumber">Vin number</label>
+            <select id="vinNumber" formControlName="vinNumber" class="form-control">
+                <option [ngValue]="null" disabled>Choose your VIN number</option>
+                <option [ngValue]="vinNumber" *ngFor="let vinNumber of allVeviclesVinNumbers">{{ vinNumber }}</option>
+            </select>
+            <button type="submit" [disabled]="!allVinNumbersForm.valid">Get vehicle by VIN number</button>
+        </form>
+    </div>
+
+    <div class="row">
+        <table>
+            <tr>
+                <th>Vehicle id</th>
+                <th>VIN number</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Date of build</th>
+                <th>Owner id</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngIf="vehicle">
+                <td>{{ vehicle.vehicle_id }}</td>
+                <td>{{ vehicle.vin_number }}</td>
+                <td>{{ vehicle.brand }}</td>
+                <td>{{ vehicle.model }}</td>
+                <td>{{ vehicle.color }}</td>
+                <td>{{ vehicle.date_of_build |date:'dd.MM.YYYY' }}</td>
+                <td>{{ vehicle.owner_id }}</td>
+                <td><a [routerLink]="['/vehicle/update', vehicle.vehicle_id]">edit</a> | <a [routerLink]="['/vehicle/delete', vehicle.vehicle_id]">delete</a></td>
+            </tr>
+            <tr *ngIf="!vehicle">
+                <td colspan="7">There is now vehicle sent from backend yet.</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import { VehicleComponent } from './components/vehicle/vehicle.component';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { DeleteVehicleComponent } from './components/delete-vehicle/delete-vehicle.component';
 import { UpdateVehicleComponent } from './components/update-vehicle/update-vehicle.component';
+import { VehicleByVinNumberComponent } from './components/vehicle-by-vin-number/vehicle-by-vin-number.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UpdateVehicleComponent } from './components/update-vehicle/update-vehic
     VehicleComponent,
     AddVehicleComponent,
     DeleteVehicleComponent,
-    UpdateVehicleComponent
+    UpdateVehicleComponent,
+    VehicleByVinNumberComponent
   ],
   imports: [
     CommonModule,
