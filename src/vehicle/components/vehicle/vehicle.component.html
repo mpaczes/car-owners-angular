@@ -1,24 +1,30 @@
 <h2>Here are owners vehicles</h2>
 
-<table>
-    <tr>
-        <th>Vehicle id</th>
-        <th>VIN number</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Color</th>
-        <th>Date of build</th>
-        <th>Owner id</th>
-        <th>Actions</th>
-    </tr>
-    <tr *ngFor="let vehicle of vehicles">
-        <td>{{ vehicle.vehicle_id }}</td>
-        <td>{{ vehicle.vin_number }}</td>
-        <td>{{ vehicle.brand }}</td>
-        <td>{{ vehicle.model }}</td>
-        <td>{{ vehicle.color }}</td>
-        <td>{{ vehicle.date_of_build | date:'dd.MM.YYYY' }}</td>
-        <td>{{ vehicle.owner_id }}</td>
-        <td><a [routerLink]="['/vehicle/update', vehicle.vehicle_id]">edit</a> | <a [routerLink]="['/vehicle/delete', vehicle.vehicle_id]">delete</a></td>
-    </tr>
-</table>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Vehicle id</th>
+                <th>VIN number</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Date of build</th>
+                <th>Owner id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vehicle of vehicles">
+                <td>{{ vehicle.vehicle_id }}</td>
+                <td>{{ vehicle.vin_number }}</td>
+                <td>{{ vehicle.brand }}</td>
+                <td>{{ vehicle.model }}</td>
+                <td>{{ vehicle.color }}</td>
+                <td>{{ vehicle.date_of_build | date:'dd.MM.YYYY' }}</td>
+                <td>{{ vehicle.owner_id }}</td>
+                <td><a [routerLink]="['/vehicle/update', vehicle.vehicle_id]">edit</a> | <a [routerLink]="['/vehicle/delete', vehicle.vehicle_id]">delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
