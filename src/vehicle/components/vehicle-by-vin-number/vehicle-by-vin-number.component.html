@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row">
         <form [formGroup]="allVinNumbersForm" (ngSubmit)="submitAllVinNumbersForm()">
-            <label for="vinNumber">Vin number</label>
+            <label for="vinNumber">VIN number</label>
             <select id="vinNumber" formControlName="vinNumber" class="form-control">
-                <option [ngValue]="null" disabled>Choose your VIN number</option>
+                <option [ngValue]="null" disabled>Choose your owner</option>
                 <option [ngValue]="vinNumber" *ngFor="let vinNumber of allVeviclesVinNumbers">{{ vinNumber }}</option>
             </select>
             <button type="submit" [disabled]="!allVinNumbersForm.valid">Get vehicle by VIN number</button>

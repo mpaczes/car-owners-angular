@@ -43,8 +43,7 @@ export class VehicleService {
   }
 
   getAllVehiclesVinNumbers(): Observable<string[]> {
-    return of(['JHMSZ542XDC028494','YV1672MK9D2304784', 'WDDDJ72X97A116339', 'WP0AA2A79BL017244', 
-      '2FAFP73W1WX172908', '4S3BJ6321N6900903', '1HD1FCW116Y619817', 'WP0CB298X4U661674']);
+    return this.httpClient.get<string[]>(this.url_for_vehicle_api + '/all_vin_numbers', { responseType: 'json' });
   }
 
 }

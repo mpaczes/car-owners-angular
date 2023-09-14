@@ -13,27 +13,29 @@ export class VehicleByVinNumberComponent implements OnInit, OnDestroy {
 
   allVeviclesVinNumbers!: string[];
   allVinNumbersSubscription!: Subscription;
+  submitFormSubscription!: Subscription;
   allVinNumbersForm!: FormGroup;
   vehicle!: IVehicle;
 
   constructor(private vehicleService: VehicleService) {}
 
   ngOnInit(): void {
+    this.allVinNumbersForm = new FormGroup({
+      vinNumber: new FormControl(null, Validators.required)
+    });
+
     this.allVinNumbersSubscription = this.vehicleService.getAllVehiclesVinNumbers().subscribe(response => {
       this.allVeviclesVinNumbers = response;
-
-      this.allVinNumbersForm = new FormGroup({
-        vinNumber: new FormControl(null, Validators.required)
-      });
     });
   }
 
   ngOnDestroy(): void {
     this.allVinNumbersSubscription?.unsubscribe();
+    this.submitFormSubscription?.unsubscribe();
   }
 
   submitAllVinNumbersForm() {
-    this.vehicleService.getVehicleByVinNumber(this.allVinNumbersForm.value.vinNumber).subscribe(response => {
+    this.submitFormSubscription = this.vehicleService.getVehicleByVinNumber(this.allVinNumbersForm.value.vinNumber).subscribe(response => {
       this.vehicle = response;
     });
   }
