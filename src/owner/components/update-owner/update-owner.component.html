@@ -1,31 +1,39 @@
-<h2>Update owner with id {{ owner.owner_id }}</h2>
-
-<div class="container">
-    <form (ngSubmit)="onSubmitForm(updateOwnerForm.value)" #updateOwnerForm="ngForm">
-        <div class="form-group">
-            <input type="hidden" class="form-control" id="owner_id" [(ngModel)]="owner.owner_id" name="ownerId">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2>Update owner with id {{ owner.owner_id }}</h2>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" [(ngModel)]="owner.first_name" name="firstName" placeholder="First name">
+    <div class="row">
+        <div class="col-12">
+            <form (ngSubmit)="onSubmitForm(updateOwnerForm.value)" #updateOwnerForm="ngForm">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="owner_id" [(ngModel)]="owner.owner_id" name="ownerId">
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" id="firstName" [(ngModel)]="owner.first_name" name="firstName" placeholder="First name">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="owner.last_name" name="lastName" placeholder="Last name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="owner.email" name="email" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of birth : ({{ owner.date_of_birth | date:'dd.MM.YYYY' }})</label>
+                    <input type="date" class="form-control" id="dateOfBirth" [(ngModel)]="owner.date_of_birth" name="dateOfBirth" placeholder="Date of birth">
+                </div>
+
+                <button type="submit" class="btn btn-success">Update owner</button>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" [(ngModel)]="owner.last_name" name="lastName" placeholder="Last name">
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" [(ngModel)]="owner.email" name="email" placeholder="Email">
-        </div>
-
-        <div class="form-group">
-            <label for="dateOfBirth">Date of birth : ({{ owner.date_of_birth | date:'dd.MM.YYYY' }})</label>
-            <input type="date" class="form-control" id="dateOfBirth" [(ngModel)]="owner.date_of_birth" name="dateOfBirth" placeholder="Date of birth">
-        </div>
-
-        <button type="submit" class="btn btn-success">Update owner</button>
-    </form>
+    </div>
 </div>

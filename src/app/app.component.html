@@ -1,14 +1,38 @@
-<h1>Car owners project</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1>Car owners project</h1>
+    </div>
+  </div>
 
-<h2>You can :</h2>
+  <div class="row">
+    <div class="col-2">
+      <h2>Owner</h2>
+    </div>
+    <div class="col-4">
+      <ul>
+        <li><a routerLink='owner'>show owners</a></li>
+        <li><a routerLink='owner/add'>add owner</a></li>
+        <li><a routerLink='vehicle/show_by_owner'>show owner vehicles</a></li>
+      </ul>
+    </div>
 
-<ul>
-  <li><a routerLink='owner'>show owners</a></li>
-  <li><a routerLink='owner/add'>add owner</a></li>
-  <li><a routerLink='vehicle'>show vehicles</a></li>
-  <li><a routerLink='vehicle/show_by_vin_number'>show vehicle by VIN number</a></li>
-  <li><a routerLink='vehicle/add'>add vehicle</a></li>
-  <li><a routerLink='vehicle/show_by_owner'>show owner vehicles</a></li>
-</ul>
+    <div class="col-2">
+      <h2>Vehicle</h2>
+    </div>
+    <div class="col-4">
+      <ul>
+        <li><a routerLink='vehicle'>show vehicles</a></li>
+        <li><a routerLink='vehicle/add'>add vehicle</a></li>
+        <li><a routerLink='vehicle/show_by_vin_number'>show vehicle by VIN number</a></li>
+      </ul>
+    </div>
+  </div>
 
-<router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

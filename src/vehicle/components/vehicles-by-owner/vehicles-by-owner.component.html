@@ -1,63 +1,71 @@
 <h2>Owner vehicles</h2>
 
-<div class="container">
-    <h3>Owner</h3>
-    <!-- owner -->
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <td>Owner id</td>
-                <td>First name</td>
-                <td>Last name</td>
-                <td>Email</td>
-            </tr>
-        </thead>
-        <tbody>
-            <ng-container *ngIf="!isMapperOwnerToVehiclesEmpty(mapperOwnerToVehicles)">
-                <tr *ngFor="let owner of mapKeys" (click)="showOwnerVehicles(owner)">
-                    <td>{{ owner.owner_id }}</td>
-                    <td>{{ owner.first_name }}</td>
-                    <td>{{ owner.last_name }}</td>
-                    <td>{{ owner.email }}</td>
-                </tr>
-            </ng-container>
-            <ng-container *ngIf="isMapperOwnerToVehiclesEmpty(mapperOwnerToVehicles)">
-                <tr>
-                    <td colspan="4">There is now information about owner.</td>
-                </tr>
-            </ng-container>
-        </tbody>
-    </table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h3>Owner</h3>
+            <!-- owner -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Owner id</td>
+                        <td>First name</td>
+                        <td>Last name</td>
+                        <td>Email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="!isMapperOwnerToVehiclesEmpty(mapperOwnerToVehicles)">
+                        <tr *ngFor="let owner of mapKeys" (click)="showOwnerVehicles(owner)">
+                            <td>{{ owner.owner_id }}</td>
+                            <td>{{ owner.first_name }}</td>
+                            <td>{{ owner.last_name }}</td>
+                            <td>{{ owner.email }}</td>
+                        </tr>
+                    </ng-container>
+                    <ng-container *ngIf="isMapperOwnerToVehiclesEmpty(mapperOwnerToVehicles)">
+                        <tr>
+                            <td colspan="4">There is now information about owner.</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <h3>Owner vehicles</h3>
-    <!-- vehicles -->
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <td>Vehicle id</td>
-                <td>VIN number</td>
-                <td>Brand</td>
-                <td>Model</td>
-                <td>Color</td>
-                <td>Date of build</td>
-            </tr>
-        </thead>
-        <tbody>
-            <ng-container *ngIf="!isOwnerVehiclesEmpty(ownerVehicles)">
-                <tr *ngFor="let vehicle of ownerVehicles">
-                    <td>{{ vehicle.vehicle_id }}</td>
-                    <td>{{ vehicle.vin_number }}</td>
-                    <td>{{ vehicle.brand }}</td>
-                    <td>{{ vehicle.model }}</td>
-                    <td>{{ vehicle.color }}</td>
-                    <td>{{ vehicle.date_of_build | date: 'dd.MM.YYYY' }}</td>
-                </tr>
-            </ng-container>
-            <ng-container *ngIf="isOwnerVehiclesEmpty(ownerVehicles)">
-                <tr>
-                    <td colspan="6">There is no information about user vehicles.</td>
-                </tr>
-            </ng-container>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-12">
+            <h3>Owner vehicles</h3>
+            <!-- vehicles -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Vehicle id</td>
+                        <td>VIN number</td>
+                        <td>Brand</td>
+                        <td>Model</td>
+                        <td>Color</td>
+                        <td>Date of build</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="!isOwnerVehiclesEmpty(ownerVehicles)">
+                        <tr *ngFor="let vehicle of ownerVehicles">
+                            <td>{{ vehicle.vehicle_id }}</td>
+                            <td>{{ vehicle.vin_number }}</td>
+                            <td>{{ vehicle.brand }}</td>
+                            <td>{{ vehicle.model }}</td>
+                            <td>{{ vehicle.color }}</td>
+                            <td>{{ vehicle.date_of_build | date: 'dd.MM.YYYY' }}</td>
+                        </tr>
+                    </ng-container>
+                    <ng-container *ngIf="isOwnerVehiclesEmpty(ownerVehicles)">
+                        <tr>
+                            <td colspan="6">There is no information about user vehicles.</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

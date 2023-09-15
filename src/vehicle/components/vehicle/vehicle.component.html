@@ -1,30 +1,38 @@
-<h2>Here are owners vehicles</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2>Here are owners vehicles</h2>
+        </div>
+    </div>
 
-<div class="container">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Vehicle id</th>
-                <th>VIN number</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Color</th>
-                <th>Date of build</th>
-                <th>Owner id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let vehicle of vehicles">
-                <td>{{ vehicle.vehicle_id }}</td>
-                <td>{{ vehicle.vin_number }}</td>
-                <td>{{ vehicle.brand }}</td>
-                <td>{{ vehicle.model }}</td>
-                <td>{{ vehicle.color }}</td>
-                <td>{{ vehicle.date_of_build | date:'dd.MM.YYYY' }}</td>
-                <td>{{ vehicle.owner_id }}</td>
-                <td><a [routerLink]="['/vehicle/update', vehicle.vehicle_id]">edit</a> | <a [routerLink]="['/vehicle/delete', vehicle.vehicle_id]">delete</a></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Vehicle id</th>
+                        <th>VIN number</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Date of build</th>
+                        <th>Owner id</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehicle of vehicles">
+                        <td>{{ vehicle.vehicle_id }}</td>
+                        <td>{{ vehicle.vin_number }}</td>
+                        <td>{{ vehicle.brand }}</td>
+                        <td>{{ vehicle.model }}</td>
+                        <td>{{ vehicle.color }}</td>
+                        <td>{{ vehicle.date_of_build | date:'dd.MM.YYYY' }}</td>
+                        <td>{{ vehicle.owner_id }}</td>
+                        <td><a [routerLink]="['/vehicle/update', vehicle.vehicle_id]" class="btn btn-primary">edit</a> | <a [routerLink]="['/vehicle/delete', vehicle.vehicle_id]" class="btn btn-danger">delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

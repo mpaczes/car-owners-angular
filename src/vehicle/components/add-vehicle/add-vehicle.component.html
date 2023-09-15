@@ -1,42 +1,51 @@
-<h2>Add vehicle</h2>
+<div class="container-fluid">
 
-<div class="container">
-    <form [formGroup]="addVehicleForm" (ngSubmit)="submitVehicleForm()">
-        <div class="form-group">
-            <label for="ownerId">Owner</label>
-            <select id="ownerId" formControlName="owner_id" class="form-control">
-                <option [ngValue]="null" disabled>Choose your owner</option>
-                <option *ngFor="let owner of allOwners" [ngValue]="owner.owner_id">
-                {{ owner.first_name }} {{ owner.last_name }} ({{ owner.email }})
-                </option>
-            </select>
+    <div class="row">
+        <div class="col-12">
+            <h2>Add vehicle</h2>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="vinNumber">VIN number</label>
-            <input type="text" id="vinNumber" formControlName="vin_number" class="form-control" placeholder="VIN number">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="addVehicleForm" (ngSubmit)="submitVehicleForm()">
+                <div class="form-group">
+                    <label for="ownerId">Owner</label>
+                    <select id="ownerId" formControlName="owner_id" class="form-control">
+                        <option [ngValue]="null" disabled>Choose your owner</option>
+                        <option *ngFor="let owner of allOwners" [ngValue]="owner.owner_id">
+                        {{ owner.first_name }} {{ owner.last_name }} ({{ owner.email }})
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vinNumber">VIN number</label>
+                    <input type="text" id="vinNumber" formControlName="vin_number" class="form-control" placeholder="VIN number">
+                </div>
+
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" id="brand" formControlName="brand" class="form-control" placeholder="Brand">
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" id="model" formControlName="model" class="form-control" placeholder="Model">
+                </div>
+
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <input type="text" id="color" formControlName="color" class="form-control" placeholder="Color">
+                </div>
+
+                <div class="form-group">
+                    <label for="dateOfBuild">Date of build</label>
+                    <input type="date" id="dateOfBuild" formControlName="date_of_build" class="form-control" placeholder="Date of build">
+                </div>
+
+                <button type="submit" [disabled]="!addVehicleForm.valid" class="btn btn-success">Add vehicle</button>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label for="brand">Brand</label>
-            <input type="text" id="brand" formControlName="brand" class="form-control" placeholder="Brand">
-        </div>
-
-        <div class="form-group">
-            <label for="model">Model</label>
-            <input type="text" id="model" formControlName="model" class="form-control" placeholder="Model">
-        </div>
-
-        <div class="form-group">
-            <label for="color">Color</label>
-            <input type="text" id="color" formControlName="color" placeholder="Color">
-        </div>
-
-        <div class="form-group">
-            <label for="dateOfBuild">Date of build</label>
-            <input type="date" id="dateOfBuild" formControlName="date_of_build" class="form-control" placeholder="Date of build">
-        </div>
-
-        <button type="submit" [disabled]="!addVehicleForm.valid" class="btn btn-success">Add vehicle</button>
-    </form>
+    </div>
 </div>
