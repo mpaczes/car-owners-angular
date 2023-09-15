@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, from, delay } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { IVehicle } from '../interfaces/ivehicle';
 
@@ -44,6 +44,33 @@ export class VehicleService {
 
   getAllVehiclesVinNumbers(): Observable<string[]> {
     return this.httpClient.get<string[]>(this.url_for_vehicle_api + '/all_vin_numbers', { responseType: 'json' });
+  }
+
+  getOwnerVehicles(): Observable<any[]> {
+    return of([
+      {
+        owner_id: 1,
+        first_name: 'marcelina',
+        last_name: 'zawadzka',
+        email: 'marcelin.zawadzka@tlen.cz',
+        date_of_birth: '1994-04-19 00:00:00.000000',
+        vehicles: [
+          {vehicle_id: 1, vin_number: 'JHMSZ542XDC028494', brand: 'Honda', model: 'Acord', color: 'blue', date_of_build: '2002-04-18 00:00:00.000000'},
+          {vehicle_id: 2, vin_number: 'YV1672MK9D2304784', brand: 'Volvo', model: 'C30', color: 'white', date_of_build: '2004-02-15 00:00:00.000000'}
+        ]
+      },
+      {
+        owner_id: 2,
+        first_name: 'magdalena',
+        last_name: 'rozdzka',
+        email: 'magdalena.rozdzka@tlen.cz',
+        date_of_birth: '1995-03-19 00:00:00.000000',
+        vehicles: [
+          {vehicle_id: 3, vin_number: '4S3BJ6321N6900903', brand: 'Subaru', model: 'Legacy', color: 'red', date_of_build: '2010-09-09 00:00:00.000000'}
+        ]
+      }
+    ])
+    .pipe(delay(3000));
   }
 
 }
