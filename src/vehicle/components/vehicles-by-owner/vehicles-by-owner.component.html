@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                     <ng-container *ngIf="!isMapperOwnerToVehiclesEmpty(mapperOwnerToVehicles)">
-                        <tr *ngFor="let owner of mapKeys" (click)="showOwnerVehicles(owner)">
+                        <tr *ngFor="let owner of getMapKeys()" (click)="showOwnerVehicles(owner)">
                             <td>{{ owner.owner_id }}</td>
                             <td>{{ owner.first_name }}</td>
                             <td>{{ owner.last_name }}</td>
