@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IOwner } from 'src/owner/interfaces/iowner';
 import { IVehicle } from 'src/vehicle/interfaces/ivehicle';
-import { VehicleService } from 'src/vehicle/services/vehicle-service.service';
+import { OwnerService } from 'src/owner/services/owner-service.service';
 
 @Component({
   selector: 'car-owners-vehicles-by-owner',
@@ -16,19 +16,21 @@ export class VehiclesByOwnerComponent implements OnInit, OnDestroy {
   ownerVehiclesSubscription!: Subscription;
   // mapKeys: IterableIterator<IOwner> | undefined;
 
-  constructor(private vehicleService: VehicleService) {}
+  constructor(private ownerService: OwnerService) {}
 
   ngOnInit(): void {
-    this.ownerVehiclesSubscription = this.vehicleService.getOwnerVehicles().subscribe(ownerVehicles => {
+    this.ownerVehiclesSubscription = this.ownerService.getOwnerVehicles().subscribe(ownerVehicles => {
       
       this.mapperOwnerToVehicles.clear();
 
       for (let owner of ownerVehicles) {
         this.mapperOwnerToVehicles.set(owner, []);
-        let ownerVehicles = owner.vehicles;
-        for (let vehicle of ownerVehicles) {
-          if (this.mapperOwnerToVehicles.has(owner)) {
-            this.mapperOwnerToVehicles.get(owner)?.push(vehicle);
+        if (owner.vehicles) {
+          let ownerVehicles = owner.vehicles;
+          for (let vehicle of ownerVehicles) {
+            if (this.mapperOwnerToVehicles.has(owner)) {
+              this.mapperOwnerToVehicles.get(owner)?.push(vehicle);
+            }
           }
         }
       }

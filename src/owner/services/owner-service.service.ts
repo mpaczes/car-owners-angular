@@ -53,6 +53,10 @@ export class OwnerService {
       .pipe(catchError(this.handleError));
   }
 
+  getOwnerVehicles(): Observable<IOwner[]> {
+    return this.httpClient.get<IOwner[]>(this.url_for_owner_api + '/assigned_vehicles', { responseType: 'json' });
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occured. Handle it accordingly.
