@@ -1,0 +1,23 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" [attr.data-bs-target]="deleteConfirmModalTemplateNameHash" id="showModalBtn_{{owner_id}}">
+  Delete record
+</button>
+
+<!-- Modal -->
+<div class="modal fade" [id]="deleteConfirmModalTemplateName" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteConfirmModalLabel">Delete confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete this record ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close_{{owner_id}}" (click)="sendCloseMessage()">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="delete_{{owner_id}}" (click)="sendDeleteMessage()">Delete record</button>
+      </div>
+    </div>
+  </div>
+</div>

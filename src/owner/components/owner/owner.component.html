@@ -16,6 +16,7 @@
                         <th>Email</th>
                         <th>Date of birth</th>
                         <th>Actions</th>
+                        <th>Delete with modal</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                         <td>{{ owner.email }}</td>
                         <td>{{ owner.date_of_birth | date:'dd.MM.YYYY' }}</td>
                         <td><a [routerLink]="['/owner/update', owner.owner_id]"  class="btn btn-primary">edit</a> | <a [routerLink]="['/owner/delete', owner.owner_id]" class="btn btn-danger">delete</a></td>
+                        <td delete-confirm [owner_id]="owner.owner_id" (deleteConfirmOutputMessage)="getConfirmMessage($event)"></td>
                     </tr>
                 </tbody>
             </table>
