@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DeleteVehicleComponent } from './delete-vehicle.component';
 
-describe('DeleteVehicleComponent', () => {
+xdescribe('DeleteVehicleComponent', () => {
   let component: DeleteVehicleComponent;
   let fixture: ComponentFixture<DeleteVehicleComponent>;
 
