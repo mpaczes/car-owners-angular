@@ -10,7 +10,7 @@ import { VehicleService } from 'src/vehicle/services/vehicle-service.service';
 })
 export class VehicleComponent implements OnInit, OnDestroy {
 
-  vehicles: IVehicle[] = []
+  vehicles: IVehicle[] = [];
   vehiclesSubscription: Subscription | undefined;
 
   constructor(private vehicleService: VehicleService) {}
